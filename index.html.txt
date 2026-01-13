@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernando Visuals | Produção Audiovisual Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        :root {
+            --primary: #000000;
+            --secondary: #E1306C;
+            --accent: #833AB4;
+            --light: #f8f8f8;
+            --dark: #121212;
+            --gray: #333333;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.1;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        
+        h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #ccc;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 50px 0;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 0;
+            background-color: rgba(18, 18, 18, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+        
+        .profile-pic-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .profile-pic {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid transparent;
+            background: linear-gradient(45deg, var(--secondary), var(--accent)) border-box;
+            box-shadow: 0 8px 20px rgba(225, 48, 108, 0.3);
+        }
+        
+        .hero {
+            padding-top: 20px;
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at 20% 50%, rgba(131, 58, 180, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(225, 48, 108, 0.1) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-subtitle i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            cursor: pointer;
+            border: none;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(225, 48, 108, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s, background-color 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .service-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background-color: rgba(225, 48, 108, 0.2);
+            color: var(--secondary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .service-features li {
+            margin-bottom: 8px;
+            padding-left: 22px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .service-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .service-price {
+            margin-top: 18px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        
+        .service-cta {
+            margin-top: 20px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .contact-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: rgba(225, 48, 108, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--secondary);
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 18px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: white;
+            font-size: 0.95rem;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: #000;
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 12px;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+        
+        .instagram-btn {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            border: none;
+        }
+        
+        .instagram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(225, 48, 108, 0.3);
+        }
+        
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-pic {
+                width: 140px;
+                height: 140px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(18, 18, 18, 0.98);
+                padding: 15px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 12px 0;
+            }
+            
+            .hero {
+                padding-top: 15px;
+                text-align: center;
+            }
+            
+            .profile-pic-container {
+                margin-top: 70px;
+            }
+            
+            .hero-subtitle {
+                justify-content: center;
+            }
+            
+            .cta-buttons {
+                justify-content: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .profile-pic-container {
+                margin-top: 60px;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header e Navegação -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Fernando<span>Visuals</span></a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="https://www.instagram.com/fernandovisuals_/" target="_blank" class="btn instagram-btn" style="padding: 6px 12px; font-size: 0.85rem;">
+                        <i class="fab fa-instagram"></i> @fernandovisuals_
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Foto de Perfil Circular - SUA FOTO INSERIDA -->
+    <div class="profile-pic-container">
+        <img src="https://i.ibb.co/MyLhwnpW/meu-retrato.png" 
+             alt="Fernando Visuals - Videomaker" class="profile-pic">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Produção Audiovisual Premium</h1>
+                <p class="hero-subtitle">
+                    <i class="fas fa-play-circle"></i>
+                    Transformo marcas, eventos e momentos em filmes que emocionam e impactam
+                </p>
+                <p>Especializado em vídeos cinematográficos e conteúdo profissional com qualidade visual, narrativa envolvente e entrega no padrão premium. Cada projeto é uma história única, contada através das lentes da criatividade e técnica.</p>
+                
+                <div class="cta-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        <i class="fas fa-video"></i> Ver Serviços
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-calendar-alt"></i> Solicitar Orçamento
+                    </a>
+                    <a href="https://www.instagram.com/fernandovisuals_/" target="_blank" class="btn instagram-btn">
+                        <i class="fab fa-instagram"></i> @fernandovisuals_
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Serviços & Pacotes</h2>
+                <p>Escolha o pacote ideal para o seu projeto audiovisual</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Serviço 1: AFTERMOVIE CINEMATOGRÁFICO -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <span class="service-category">Para Marcas & Eventos</span>
+                    <h3>Aftermovie Cinematográfico</h3>
+                    <p>Captação e edição cinematográfica em estilo aftermovie, com narrativa dinâmica e impacto visual perfeito para eventos corporativos, festas e lançamentos.</p>
+                    
+                    <ul class="service-features">
+                        <li>Captação e edição profissional</li>
+                        <li>Estilo Aftermovie (Trailer dinâmico)</li>
+                        <li>Estabilização de imagem avançada</li>
+                        <li>Drone FPV (experiência imersiva)</li>
+                        <li>Suporte para aproveitar o máximo de qualidade</li>
+                        <li>Prazo: 4 a 9 dias úteis</li>
+                    </ul>
+                    
+                    <div class="service-price">Valor: A consultar</div>
+                    
+                    <div class="service-cta">
+                        <a href="https://wa.me/5511972311688?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20Aftermovie%20Cinematográfico" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i> Solicitar no WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Serviço 2: FILM BOOK CINEMATOGRÁFICO -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <span class="service-category">Para Pessoas</span>
+                    <h3>Film Book Cinematográfico</h3>
+                    <p>Captação e edição com linguagem cinematográfica, ideal para reels autorais, artistas, influenciadores e fortalecimento de marca pessoal.</p>
+                    
+                    <ul class="service-features">
+                        <li>Direção artística</li>
+                        <li>Estabilizador de imagem</li>
+                        <li>Formato vertical ou horizontal</li>
+                        <li>Drone FPV (experiência imersiva)</li>
+                        <li>Edição cinematográfica</li>
+                        <li>Prazo: 3 a 9 dias conforme complexidade</li>
+                    </ul>
+                    
+                    <div class="service-price">Valor: A consultar</div>
+                    
+                    <div class="service-cta">
+                        <a href="https://wa.me/5511972311688?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20pacote%20Film%20Book%20Cinematográfico" target="_blank" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i> Agendar Film Book
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Serviço 3: ENSAIO FOTOGRÁFICO EXTERNO -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-camera-retro"></i>
+                    </div>
+                    <span class="service-category">Fotografia Premium</span>
+                    <h3>Ensaio Fotográfico Externo</h3>
+                    <p>Ensaio artístico com direção especializada, edição avançada e entrega em alta resolução. Perfeito para books femininos, casais ou retratos profissionais.</p>
+                    
+                    <ul class="service-features">
+                        <li>Direção de poses e conceito</li>
+                        <li>35 fotos editadas em alta resolução</li>
+                        <li>Locais externos à sua escolha</li>
+                        <li>Tratamento profissional em Lightroom/Photoshop</li>
+                        <li>Entrega digital via link</li>
+                        <li>Sessão de 2-3 horas</li>
+                    </ul>
+                    
+                    <div class="service-price">Valor: A consultar</div>
+                    
+                    <div class="service-cta">
+                        <a href="https://wa.me/5511972311688?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20o%20Ensaio%20Fotográfico%20Externo" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-calendar-alt"></i> Agendar Ensaio
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Serviço 4: COBERTURA COMPLETA DE EVENTOS -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <span class="service-category">Eventos Especiais</span>
+                    <h3>Cobertura Completa de Eventos</h3>
+                    <p>Registro artístico e sensível para momentos únicos como debutantes, chá revelação, casamentos e celebrações familiares.</p>
+                    
+                    <ul class="service-features">
+                        <li>Cobertura fotográfica completa</li>
+                        <li>Ensaio artístico pré-evento</li>
+                        <li>Brinde exclusivo: Save The Date</li>
+                        <li>Direção de poses e momentos espontâneos</li>
+                        <li>Entrega digital em alta resolução</li>
+                    </ul>
+                    
+                    <div class="service-price">Valor: A consultar</div>
+                    
+                    <div class="service-cta">
+                        <a href="https://wa.me/5511972311688?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20Cobertura%20Completa%20de%20Eventos" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-gift"></i> Mais Informações
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://www.instagram.com/fernandovisuals_/" target="_blank" class="btn instagram-btn">
+                    <i class="fab fa-instagram"></i> Veja meus trabalhos no Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Vamos transformar sua ideia em um projeto audiovisual incrível</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4>WhatsApp Rápido</h4>
+                            <p>Orçamento personalizado em até 24h</p>
+                            <p><strong>(11) 97231-1688</strong></p>
+                            <a href="https://wa.me/5511972311688?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços" 
+                               target="_blank" class="btn btn-primary" style="margin-top: 10px; padding: 10px 20px;">
+                                <i class="fab fa-whatsapp"></i> Falar agora
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div>
+                            <h4>Instagram</h4>
+                            <p>Portfólio atualizado e novidades</p>
+                            <a href="https://www.instagram.com/fernandovisuals_/" target="_blank" class="btn instagram-btn" style="margin-top: 10px; padding: 10px 20px;">
+                                <i class="fab fa-instagram"></i> @fernandovisuals_
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Atendimento</h4>
+                            <p>Grande São Paulo e região</p>
+                            <p>Eventos em todo Brasil</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px; font-size: 1.4rem;">Formulário de Contato</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefone/WhatsApp *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Serviço de Interesse *</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Selecione um serviço</option>
+                                <option value="aftermovie">Aftermovie Cinematográfico</option>
+                                <option value="filmbook">Film Book Cinematográfico</option>
+                                <option value="ensaio">Ensaio Fotográfico</option>
+                                <option value="evento">Cobertura de Evento</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Detalhes do Projeto *</label>
+                            <textarea id="message" class="form-control" required placeholder="Descreva brevemente seu projeto, data estimada e qualquer informação relevante..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px;">
+                            <i class="fas fa-paper-plane"></i> Enviar Solicitação
+                        </button>
+                        
+                        <div style="text-align: center; margin-top: 15px;">
+                            <p style="margin-bottom: 8px;">Ou fale diretamente pelo WhatsApp:</p>
+                            <a href="https://wa.me/5511972311688?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento" 
+                               target="_blank" class="btn btn-primary" style="width: 100%; padding: 12px; margin-top: 5px;">
+                                <i class="fab fa-whatsapp"></i> WhatsApp (11) 97231-1688
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Fernando<span>Visuals</span></div>
+                    <p>Produção audiovisual premium com foco em qualidade cinematográfica, narrativa envolvente e entrega que supera expectativas.</p>
+                    
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/fernandovisuals_/" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@fernandovisuals" target="_blank" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://vimeo.com/fernandovisuals" target="_blank" class="social-link">
+                            <i class="fab fa-vimeo-v"></i>
+                        </a>
+                        <a href="https://wa.me/5511972311688" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-services">
+                    <h4>Serviços</h4>
+                    <ul style="list-style: none;">
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Aftermovie Cinematográfico</a></li>
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Film Book Pessoal</a></li>
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Ensaio Fotográfico</a></li>
+                        <li><a href="#services" style="color: #ccc; text-decoration: none; font-size: 0.9rem;">Cobertura de Eventos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contato Rápido</h4>
+                    <p style="font-size: 0.9rem;"><i class="fab fa-whatsapp" style="margin-right: 10px;"></i> (11) 97231-1688</p>
+                    <p style="font-size: 0.9rem;"><i class="fab fa-instagram" style="margin-right: 10px;"></i> @fernandovisuals_</p>
+                    <p style="font-size: 0.9rem;"><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> São Paulo, Brasil</p>
+                    
+                    <div style="margin-top: 15px;">
+                        <a href="https://wa.me/5511972311688" target="_blank" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <a href="https://www.instagram.com/fernandovisuals_/" target="_blank" class="btn instagram-btn" style="padding: 8px 16px; font-size: 0.85rem; margin-left: 10px;">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Fernando Visuals. Todos os direitos reservados.</p>
+                <p style="margin-top: 8px; font-size: 0.75rem;">Desenvolvido com paixão por criação audiovisual.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Formulário de contato
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Coletar dados do formulário
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Simular envio
+            alert(`Obrigado, ${formData.name}! Sua solicitação foi enviada com sucesso. Entrarei em contato em até 24h.`);
+            contactForm.reset();
+        });
+        
+        // Scroll suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
